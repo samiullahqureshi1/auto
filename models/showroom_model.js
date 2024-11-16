@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import { type } from "os";
+
 
 const location_schema = new mongoose.Schema({
   latitude: {
@@ -26,6 +26,9 @@ const showroom_schema = new mongoose.Schema({
   location: {
     type: location_schema,
   },
+  is_autoking_showroom:{
+    type: Boolean,
+  }
 });
 
 const Showroom = mongoose.model("Showroom", showroom_schema);
