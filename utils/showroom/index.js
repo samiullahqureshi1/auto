@@ -48,3 +48,20 @@ export const delete_showroom = async (payload) => {
     console.log(error.message);
   }
 };
+
+// Other Showrooms
+
+export const other_showrooms = async () => {
+try {
+ const data = await Showroom.aggregate([
+  {
+    $match:{
+      is_autoking_showroom: false
+    }
+  }
+ ])
+ return data
+} catch (error) {
+  console.log(error.message);
+}
+} 

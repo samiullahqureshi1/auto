@@ -1,4 +1,4 @@
-import { get_showrooms, update_showroom, delete_showroom } from "../../utils/showroom/index.js";
+import { get_showrooms, update_showroom, delete_showroom, other_showrooms } from "../../utils/showroom/index.js";
 import { showroom_actions } from "./actions.js";
 
 export const showroom_module = (io, socket) => {
@@ -32,5 +32,15 @@ export const showroom_module = (io, socket) => {
           callback({ message: error.message });
         }
       });
+
+    // Get other Showrooms
+    socket.on(showroom_actions.get_other_showrooms, async (payload, callback) => {
+      try {
+        let response = await other_showrooms();
+        callback({ message: "success", data: response });
+      } catch (error) {
+        callback({ message: error.message });
+      }
+    } ) 
 
   };
