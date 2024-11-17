@@ -51,7 +51,9 @@ app.use("/showroom", showroom_routes)
 app.use("/car", car_routes)
 
 initSocket(server);
-
+app.get('/', (req, res) => {
+  res.send("Hello World!");
+});
 // Server listning
 server.listen(process.env.PORT, () => {
   console.log(`Server is listening on ${process.env.PORT}`);
