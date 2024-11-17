@@ -1,10 +1,10 @@
 import mongoose from "mongoose";
 
 const make_schema = new mongoose.Schema({
-  name_en: {
+  nameEN: {
     type: String,
   },
-  name_ar: {
+  nameAR: {
     type: String,
   },
 });
